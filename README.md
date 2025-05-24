@@ -79,10 +79,10 @@ http://127.0.0.1:5000/
 ```
 
 ## Usage
---Open your browser and go to http://127.0.0.1:5000/
+-- Open your browser and go to http://127.0.0.1:5000/
 
---Register a new user and select a role (student, staff, or admin)
+-- Register a new user and select a role (student, staff, or admin)
 
---Login to access the dashboard and reporting features
+-- Login to access the dashboard and reporting features
 
---Use the navigation menu to visit other pages like About, Help, and Contact
+-- Use the navigation menu to visit other pages like About, Help, and Contact
