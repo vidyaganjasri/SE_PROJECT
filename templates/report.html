@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Item</title>
+    <style>
+        body { font-family: Arial; background: #f0fff0; text-align: center; padding: 40px; }
+        input, textarea, select { display: block; margin: 10px auto; padding: 10px; width: 300px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Report Lost/Found Item</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <select name="type" required>
+            <option value="" disabled selected>Select Report Type</option>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+        </select>
+
+        <input name="title" placeholder="Item Title" required>
+
+        <textarea name="description" placeholder="Describe the item..." required></textarea>
+
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            <option value="" disabled selected>Select Category</option>
+            {% for cat in categories %}
+                <option value="{{ cat }}">{{ cat.title() }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="image">Upload Image (optional)</label>
+        <input type="file" name="image" id="image" accept="image/*">
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

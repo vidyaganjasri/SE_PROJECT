@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smoother Horizontal Accordion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .accordion-container {
+      display: flex;
+      width: 90%;
+      max-width: 900px;
+      border: 1px solid #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    .accordion {
+      background: #fff;
+      color: #000;
+      flex: 1 1 150px; /* base width */
+      min-width: 120px; /* prevent too small */
+      border-left: 1px solid #000;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 
+        flex-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+        background-color 0.3s ease, 
+        color 0.3s ease;
+      /* Adding a tiny delay to flex-grow helps with smoothness */
+      will-change: flex-grow;
+    }
+
+    .accordion:first-child {
+      border-left: none;
+    }
+
+    .accordion:hover {
+      background: #000;
+      color: #fff;
+      flex-grow: 2.8; /* less aggressive growth */
+      z-index: 10;
+    }
+
+    .accordion-header {
+      padding: 16px 20px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .accordion-desc {
+      padding: 0 20px;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.3s; /* delay for nicer fade-in */
+      flex-grow: 1;
+      overflow: auto;
+      margin-top: 0;
+      user-select: text;
+    }
+
+    .accordion:hover .accordion-desc {
+      opacity: 1;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="accordion-container">
+
+    <div class="accordion">
+      <div class="accordion-header">✚ Register/Login</div>
+      <div class="accordion-desc">
+        Sign up or log in to access the platform, whether you're a student or staff member.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">✜ Report Item</div>
+      <div class="accordion-desc">
+        Easily report a lost or found item with a short description and location.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">✦ Edit/Delete</div>
+      <div class="accordion-desc">
+        You can update your item details or remove it from the list if no longer relevant.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">✱ Get Notified</div>
+      <div class="accordion-desc">
+        Receive an email or message once your item is found or matched by the admin.
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

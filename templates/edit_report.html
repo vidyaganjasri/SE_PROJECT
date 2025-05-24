@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Report</title>
+    <style>
+        body { font-family: Arial; padding: 30px; max-width: 600px; margin: auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], select, textarea, input[type="file"] {
+            width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;
+        }
+        textarea { resize: vertical; height: 100px; }
+        button {
+            margin-top: 20px; padding: 10px 20px; background-color: #007bff;
+            border: none; color: white; cursor: pointer; border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a { display: inline-block; margin-top: 15px; text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+        img.current-image { margin-top: 10px; max-width: 150px; border: 1px solid #ccc; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Edit Report</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="type">Type</label>
+        <select name="type" id="type" required>
+            <option value="lost" {% if report['type'] == 'lost' %}selected{% endif %}>Lost</option>
+            <option value="found" {% if report['type'] == 'found' %}selected{% endif %}>Found</option>
+        </select>
+
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            {% for cat in categories %}
+                <option value="{{ cat }}" {% if report['category'] == cat %}selected{% endif %}>{{ cat.capitalize() }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="{{ report['title'] }}" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required>{{ report['description'] }}</textarea>
+
+        <label for="image">Upload New Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        {% if report['image'] %}
+            <p>Current Image:</p>
+            <img src="{{ url_for('static', filename='uploads/' + report['image']) }}" alt="Current Image" class="current-image">
+        {% endif %}
+
+        <button type="submit">Update Report</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}">&larr; Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lost & Found Portal</title>
+    <style>
+        .nav {
+            margin-left: 290px;
+        }
+
+
+        .nav a {
+            margin: 100px;
+            letter-spacing: 4px; /* or try 1px, 3px — adjust as needed */
+            text-decoration: none;
+            color: rgb(12, 12, 12);
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 18px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(24, 24, 24);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #cccccc; /* Faded white */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .auth-buttons a {
+            text-decoration: none;
+            color: rgb(23, 23, 23);
+            border: 2px solid rgb(20, 20, 20);
+            padding: 10px 70px;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 8px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .auth-buttons a:hover {
+            background-color: rgb(29, 29, 29);
+            color: rgb(214, 214, 214);
+            transform: scale(1.05); /* subtle zoom */
+        }
+        
+        .container {
+            position: relative;
+            height: 300px; /* increased from 220px */
+            margin-top:120px;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        .headline {
+        position: relative; /* or remove position */
+        font-size: 108px;
+        margin: 0;
+        width: 100%;
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        line-height: 1.1;
+        min-height: 280px; /* or 300px */
+    }
+
+    .logo {
+        font-size: 25px; /* adjust size as needed */
+        margin-left: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+    html {
+    scroll-behavior: smooth;
+    }
+        
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_css.css') }}">
+
+</head>
+<body>
+<div id="home">
+    <div class="logo">◪_◪</div>
+    <nav class="nav">
+        <a href="#about_us">✤ about</a>
+        <a href="/help">✦ user Guide</a>
+        <a href="/Contact">✣ contact</a>
+    </nav>
+    <div class="container">
+    <h1 id="headline-text" class="headline" style="font-size: 120px;text-align: center;">
+        "Find It or Forget It",<br>
+        <span style="margin-left: 50px;">We Got You!</span>
+        <span style="display: inline-block; transform: rotate(15deg); margin-left: 30px; font-size: 50px; position: relative; top: -20px;">◪_◪</span>
+    </h1>
+    </div>
+
+<div class="auth-buttons" style="margin-left: 530px;margin-top: 80px;">
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+</div>
+</div>
+<div id="about_us" style="margin: 47px; margin-bottom: 150px;margin-top: 50px;">
+    <nav class="nava"><a href="#" style="margin-bottom: 30px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 10px;" onclick="scrollToTop()">✷ Back to Home</a></nav>
+    <header style="margin-top: 30px;">✿ About Lost & Found Portal</header>
+    <div class="subheading">Our values & how the platform works</div>
+
+    <div class="grid" style="margin-bottom: 40px;">
+        <div class="card">
+            <div class="number">01</div>
+            <div class="title">Excellence ✦</div>
+            <div class="desc">
+                We design a user-friendly platform for reporting and finding lost items. We believe in smart, secure, and intuitive experiences.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="number">02</div>
+            <div class="title">Collaboration ✧</div>
+            <div class="desc">
+                The portal connects students, staff, and admins. Everyone contributes to reporting, verifying, and recovering lost items.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="number">03</div>
+            <div class="title">Transparency ✣</div>
+            <div class="desc">
+                All reports and actions are tracked and visible to the relevant users. You’ll know the status at each step.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="number">04</div>
+            <div class="title">AI Assistance ✪</div>
+            <div class="desc">
+                Admins can upload CCTV videos/images. Our AI model (YOLO) detects objects and helps match with reports quickly.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="number">05</div>
+            <div class="title">Smart Notifications ✺</div>
+            <div class="desc">
+                Get instant dashboard alerts when items matching your report are detected or posted. No more missing updates.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="number">06</div>
+            <div class="title">Efficient Search ✤</div>
+            <div class="desc">
+                Filter and search by keywords, date, location, and category. Finding or posting a lost item is just a few clicks away.
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="height: 100px;"></footer>
+<script>
+  const headlines = [
+    `<span style="font-size:120px">"Find It or Forget It",<br><span style="margin-left: 50px;">We Got You!</span></span><span style="display: inline-block; transform: rotate(15deg); margin-left: 30px; font-size: 50px; position: relative; top: -20px;">◪_◪</span>`,
+    `<span style="display: inline-block; transform: rotate(15deg); font-size: 80px; position: relative; top: -50px;margin-right:20px">✦</span>Forget much?<br>You’re not alone.<span style="display: inline-block; transform: rotate(-15deg); font-size: 70px; position: relative; top: -20px;">✦</span>`,
+    `Misplaced? Relax,<br><span>Our Portal’s On Patrol</span><br><span style="display: inline-block;margin-left:10px; font-size: 50px; position: relative; top: -20px;"></span>`
+  ];
+
+  const headlineElement = document.getElementById('headline-text');
+  let currentIndex = 0;
+
+  setInterval(() => {
+    // Slide up & fade out
+    headlineElement.style.transform = "translateY(100%)";
+    headlineElement.style.opacity = "0";
+
+    setTimeout(() => {
+      // Change text and position it above
+      currentIndex = (currentIndex + 1) % headlines.length;
+      headlineElement.innerHTML = headlines[currentIndex];
+      headlineElement.style.transform = "translateY(-100%)";
+
+      // Slide down & fade in
+      setTimeout(() => {
+        headlineElement.style.transform = "translateY(0)";
+        headlineElement.style.opacity = "1";
+      }, 50);
+    }, 300);
+  }, 3000); // adjust timing as needed
+
+   const cards = document.querySelectorAll('.card');
+
+  function revealOnScroll() {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+
+</body>
+</html>

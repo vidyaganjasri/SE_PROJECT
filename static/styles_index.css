@@ -1,0 +1,9 @@
+body {
+  background-size: cover;       /* Makes the image cover the whole screen */
+  background-repeat: no-repeat; /* Prevents repeating boxes */
+  background-position: center; 
+  background-color: #ffffff;
+  color: #202020;
+  height: 100vh;
+  font-size: 16px;
+}
